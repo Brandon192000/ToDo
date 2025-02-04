@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2 class="text-center text-warning">Tareas Pendientes</h2>
+
+
+  <input
+
+    type="text"
+    [(ngModel)]="buscar"
+    class="form-control mb-3"
+    placeholder="Buscar tarea..."
+    (input)="buscarTarea()">
+
+  <div class="row">
+
+    <div class="col-md-4 d-flex align-items-stretch" *ngFor="let tarea of filtrar">
+
+      <div class="card mb-3 w-100 h-100 shadow">
+
+        <div class="card-body d-flex flex-column">
+
+          <h5 class="card-title">{{ tarea.title }}</h5>
+
+          <p>ID: {{ tarea.id }}</p>
+          <div class="mt-auto text-center">
+
+            <a [routerLink]="['/detalles', tarea.id]" class="btn btn-warning">Ver Detalles</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+

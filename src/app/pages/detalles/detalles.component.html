@@ -1,0 +1,49 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow-lg p-4" style="max-width: 600px;">
+
+    <div class="text-center">
+
+      <h2 class="text-primary">Detalles de la Tarea</h2>
+
+    </div>
+
+    <hr>
+
+    <div *ngIf="tarea && usuario">
+
+      <p><strong>ID de la tarea:</strong> {{ tarea.id }}</p>
+      <p><strong>Titulo:</strong> {{ tarea.title }}</p>
+      <p><strong>Estado:</strong>
+
+        <span class="badge" [ngClass]="tarea.completed ? 'bg-success' : 'bg-warning'">
+
+          {{ tarea.completed ? 'Completada' : 'Pendiente' }}
+
+        </span>
+
+      </p>
+
+      <h3 class="mt-4">Informacion del Usuario</h3>
+
+      <p><strong>ID del Usuario:</strong> {{ usuario.id }}</p>
+      <p><strong>Nombre:</strong> {{ usuario.name }}</p>
+      <p><strong>Correo Electronico:</strong> {{ usuario.email }}</p>
+      <p><strong>Telefono:</strong> {{ usuario.phone }}</p>
+
+      <div class="text-center mt-4">
+
+        <a routerLink="/pendientes" class="btn btn-primary">Volver</a>
+
+      </div>
+
+    </div>
+
+    <div class="text-center text-danger mt-3" *ngIf="!tarea">
+
+      <p>No se encontro la tarea.</p>
+
+    </div>
+
+  </div>
+</div>
+
